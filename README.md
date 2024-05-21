@@ -16,5 +16,10 @@ import requests
 url = 'https://ohmslaw-u2g5rsfcwa-tl.a.run.app/api/v1/f_resistor?source=12.0&component_voltage=5.0'
 response = requests.get(url)
 
-print(response.json)
+if response.status_code == 200:
+    dados = response.json()
+    print(dados)
+else:
+    print(f'Erro na solicitação: {response.status_code}')
+
 ```
